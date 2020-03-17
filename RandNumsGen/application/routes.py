@@ -7,4 +7,4 @@ numbers = '0123456789'
 
 @app.route('/numGen')
 def numGen():
-    return ''.join(random.choice(numbers) for i in range(16))
+    return ''.join(random.choice(numbers) for i in range(3))

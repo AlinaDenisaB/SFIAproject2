@@ -1,36 +1,60 @@
-version: "3.7"
+version: '3.7'
 services:
-  nginx:
-    image: nginx:latest
-    container_name: nginx
+  backend:
+    build: ./PasswordGenerator
     ports:
-    - target: 80
-      published: 80
-    volumes:
-    - type: bind
-      source: ./nginx/nginx.conf
-      target: /etc/nginx/nginx.conf
-    depends_on:
-      - frontend-service
-  frontend-service:
-    image: frontend
-    container_name: frontend
-    build: FrontEnd/
+    - target: 5004
+      published: 5004
+      protocol: tcp
     environment:
-    - USERNAME=${USERNAME}
-    - PASSWORD=${PASSWORD}
-    - MYSQL_URL=${MYSQL_URL}
-    - MYSQL_DB=${MYSQL_DB}
-    - SECRET_KEY=${SECRET_KEY}
-  central-service:
-    image: central-service
-    container_name: central
-    build: CentralServer
-  country-service:
-    image: country-service
-    container_name: country
-    build: CountryGenerator
-  account-service:
-    image: account-service
-    container_name: account
-    build: AccountGenerator/
+    - SECRET_KEY=secretkey
+    networks:
+    - my-network
+  
+  numsgen:
+    build: ./RandNumsGen
+    ports:
+    - target: 5001
+      published: 5001
+      protocol: tcp
+    environment:
+    - SECRET_KEY=secretkey
+    networks:
+    - my-network
+  
+  letgen:
+    build: ./RandLetGen
+    ports:
+    - target: 5002
+      published: 5002
+      protocol: tcp
+    environment:
+    - SECRET_KEY=secretkey
+    networks:
+    - my-network
+  specialchargen:
+     build: ./SpecialCharGen
+     ports:
+     - target: 5003
+       published: 5003
+       protocol: tcp
+     environment:
+     - SECRET_KEY=secretkey
+     networks:
+     - my-network
+    
+  frontend:
+    build: ./FrontEnd
+    ports:
+    - target: 5000
+      published: 5000
+      protocol: tcp
+    environment:
+    - SECRET_KEY=secretkey
+    networks:
+    - my-network
+    depends_on:
+    - backend
+
+networks:
+  my-network:

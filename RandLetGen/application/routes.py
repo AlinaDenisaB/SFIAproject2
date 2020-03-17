@@ -3,8 +3,8 @@ from application import app
 import requests
 import random
 
-letters='abcdefghijklmnopqrstuvwxyz'
+letters='aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ'
 
 @app.route('/letGen')
 def letGen():
-    return ''.join(random.choice(letters) for i in range(16))
+    return ''.join(random.choice(letters) for i in range(10))
