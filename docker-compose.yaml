@@ -1,18 +1,36 @@
-version: '3.4'
+version: "3.7"
 services:
-  flask-app:
-    build: ./flask-app
-    ports:
-    - target: 5000
-      published: 5000
-      protocol: tcp
   nginx:
     image: nginx:latest
+    container_name: nginx
     ports:
     - target: 80
       published: 80
-      protocol: tcp
     volumes:
     - type: bind
       source: ./nginx/nginx.conf
       target: /etc/nginx/nginx.conf
+    depends_on:
+      - frontend-service
+  frontend-service:
+    image: frontend
+    container_name: frontend
+    build: FrontEnd/
+    environment:
+    - USERNAME=${USERNAME}
+    - PASSWORD=${PASSWORD}
+    - MYSQL_URL=${MYSQL_URL}
+    - MYSQL_DB=${MYSQL_DB}
+    - SECRET_KEY=${SECRET_KEY}
+  central-service:
+    image: central-service
+    container_name: central
+    build: CentralServer
+  country-service:
+    image: country-service
+    container_name: country
+    build: CountryGenerator
+  account-service:
+    image: account-service
+    container_name: account
+    build: AccountGenerator/

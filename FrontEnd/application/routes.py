@@ -6,7 +6,7 @@ import flask_bcrypt
 import os
 import secrets
 from werkzeug.utils import secure_filename
-from PIL import Image
+#from PIL import Image
 
 @app.route('/')
 @app.route('/home')
