@@ -5,7 +5,6 @@ import random
 
 numbers = '0123456789'
 
-@app.route('numGen', methods=['POST'])
+@app.route('/numGen')
 def numGen():
-	response_value = ''.join(random.choice(numbers) for i in range(6))
-	return {"Random number":response_value}
+    return ''.join(random.choice(numbers) for i in range(16))
