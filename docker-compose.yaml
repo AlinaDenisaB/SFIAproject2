@@ -1,6 +1,6 @@
 version: '3.7'
 services:
-  backend:
+  passwordgenerator:
     build: ./PasswordGenerator
     ports:
     - target: 5004
@@ -11,7 +11,7 @@ services:
     networks:
     - my-network
   
-  numsgen:
+  randnumsgen:
     build: ./RandNumsGen
     ports:
     - target: 5001
@@ -22,7 +22,7 @@ services:
     networks:
     - my-network
   
-  letgen:
+  randletgen:
     build: ./RandLetGen
     ports:
     - target: 5002
@@ -54,7 +54,7 @@ services:
     networks:
     - my-network
     depends_on:
-    - backend
+    - passwordgenerator
 
 networks:
   my-network:
