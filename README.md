@@ -3,24 +3,24 @@
 Micro-sevice oriented arhitecture application that generates "Objects" upon a set of predefined rules.  
 
 #### Content ####  
-* Introduction  
- * Overview  
- * User Stories
- * Risk Assessment
- * ERD
- * CI Pipeline
+* [Introduction](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/README.md#introduction)  
+ * [Overview](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/README.md#overview)  
+ * [User Stories](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/README.md#user-stories)
+ * [Risk Assessment](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/README.md#risk-assessment)
+ * [ERD](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/README.md#erd)
+ * [CI Pipeline](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/README.md#ci-pipeline)
  
-* Architecture - Micro Services  
-  * Service #1
-  * Service #2  
-  * Service #3
-  * Service #4  
+* [Architecture - Micro Services](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/README.md#arhitecture-micro-services)  
+  * [Service #1](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/README.md#service-#1)
+  * [Service #2](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/README.md#service-#2)  
+  * [Service #3](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/README.md#service-#3)
+  * [Service #4](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/README.md#service-#4)  
   
-* User Journey  
-* Ansible Playbook 
-* Test Log
-* [Demonstration](https://github.com/AlinaDenisaB/SFIAproject2/blob/develop/README.md#demonstration)
-* [Future Improvements](https://github.com/AlinaDenisaB/SFIAproject2/blob/develop/README.md#future-improvements)
+* [User Journey](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/README.md#user-journey)  
+* [Ansible Playbook](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/README.md#ansible-playbook) 
+* [Test Log](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/README.md#tests-log)
+* [Demonstration](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/README.md#demonstration)
+* [Future Improvements](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/README.md#future-improvements)
 
 ### Introduction ### 
 #### Overview ####
