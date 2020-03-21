@@ -45,8 +45,9 @@ Used technologies:
 * Azure Virtual Machines - cloud server
 * Docker - Conteinerisation   
 * Docker Swarm - Orchestration Tool
-* Kanban board - full expansion on tasks needed to complete the project
-* This also provide a record of any issues or risks I face creating my project
+* Asana (Kanban board) - full expansion on tasks needed to complete the project  
+  * This also provide a record of any issues or risks I face creating my project  
+    [Asana Board](https://app.asana.com/0/1167646120844282/board)
 ### Tests Log ###
 ### Demonstration ###
 link
