@@ -20,7 +20,7 @@ Micro-sevice oriented arhitecture application that generates "Objects" upon a se
 * Ansible Playbook 
 * Test Log
 * Demonstration
-* Future Improvements
+* [Future Improvements](https://github.com/AlinaDenisaB/SFIAproject2/blob/develop/README.md#future-improvements)
 
 ### Introduction ### 
 #### Overview ####
