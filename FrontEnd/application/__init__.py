@@ -4,12 +4,13 @@ from flask_bcrypt import Bcrypt
 import os
 from os import getenv
 
+
 app= Flask(__name__)
 bcrypt = Bcrypt(app)
 
 
-app.config['SQLALCHEMY_DATABASE_URI'] = str(getenv('DATABASE_URI'))
-app.config['SECRET_KEY'] = str(getenv('MY_SECRET_KEY'))
+app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://"+os.getenv("USERNAME")+":"+os.getenv("PASSWORD")+"@"+os.getenv("MYSQL_URL")+"/"+os.getenv("MYSQL_DB")
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 
 db = SQLAlchemy(app)
 

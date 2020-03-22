@@ -9,12 +9,13 @@ CREATE table db.Products(
 	id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	productName varchar(50) NOT NULL,
 	productInfo varchar(50) NOT NULL,
-	productIMG varchar(50), NOT NULL,
+	productIMG varchar(50) NOT NULL,
 	productPrice float NOT NULL
 );
 
-CREATE table db.categories_products(
+CREATE table db.Users(
 	id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	FOREIGN KEY (categoryID) REFERENCES Categories(id),
-	FOREIGN KEY (productID) REFERENCES Products(id)
+	email varchar(50) NOT NULL,
+	password varchar(50) NOT NULL,
+	confirmPassword varchar(50) NOT NULL
 );

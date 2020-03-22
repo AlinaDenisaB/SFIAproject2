@@ -2,7 +2,6 @@ from flask_wtf import FlaskForm, RecaptchaField
 from flask_wtf.file import FileField, FileAllowed
 from wtforms import Form, StringField, SubmitField, FloatField, IntegerField, validators
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
-from application.models import Categories, Products
 
 class CategoryForm(FlaskForm):
     categoryName=StringField('CategoryName',
@@ -60,3 +59,24 @@ class DeleteProduct(FlaskForm):
         ]
     )
     submit=SubmitField('Delete product!')
+
+class Register(FlaskForm):
+    email=StringField('Email', 
+        validators=[
+            DataRequired(),
+            Length(min=2, max=100)
+        ]
+    )
+    password=StringField('Password',
+        validators=[
+            DataRequired(),
+            Length(min=6, max=100)
+        ]   
+    )
+    confirmPassword=StringField('Confirm password',
+        validators=[
+            DataRequired(),
+            Length(min=6, max=100)
+        ]
+    )
+    submit=SubmitField("Register")

@@ -1,6 +1,5 @@
 from flask import render_template, redirect, url_for, request
 from application import app, db, bcrypt
-from application.models import Categories, Products, categories_products
 from application.forms import CategoryForm, ProductForm, UpdateProducts, DeleteProduct
 import flask_bcrypt
 import os
@@ -15,8 +14,8 @@ def home():
 
 @app.route('/products')
 def products():
-    products = Products.query.all()
-    categories=Categories.query.all()
+    products = db.Products.query.all()
+    categories= db.Categories.query.all()
     loc_image= url_for('static', filename='productIMG/')
     return render_template("products.html", categories=categories, products=products, loc_image=loc_image)
 
@@ -40,7 +39,7 @@ def save_img(form_picture):
 def admin():
     categoryForm=CategoryForm()
     if categoryForm.validate_on_submit():
-        category=Categories(
+        category=db.Categories(
                 categoryName=categoryForm.categoryName.data
             )
         db.session.add(category)
@@ -51,9 +50,9 @@ def admin():
     if productForm.validate_on_submit():
         if productForm.productIMG.data:
             FinalIMG=save_img(productForm.productIMG.data)
-            Products.productIMG = FinalIMG
+            db.Products.productIMG = FinalIMG
 
-        product=Products(
+        product=db.Products(
                 productName=productForm.productName.data, 
                 productInfo=productForm.productInfo.data,
                 productIMG=FinalIMG,
@@ -65,14 +64,19 @@ def admin():
     
     updateProduct=UpdateProducts()
     if updateProduct.validate_on_submit():
-        newPrice=Products.query.filter_by(productName=updateProduct.productName.data).update(dict(productPrice=updateProduct.productPrice.data))
+        newPrice=db.Products.query.filter_by(productName=updateProduct.productName.data).update(dict(productPrice=updateProduct.productPrice.data))
         db.session.commit()
         return redirect(url_for('products'))
 
     deleteProduct=DeleteProduct()
     if deleteProduct.validate_on_submit():
-        Products.query.filter_by(productName=deleteProduct.productName.data).delete()
+        db.Products.query.filter_by(productName=deleteProduct.productName.data).delete()
         db.session.commit()
         return redirect(url_for('products'))
 
     return render_template('admin.html', form=categoryForm, form1=productForm, form2=updateProduct, form3=deleteProduct)
+
+@app.route('/register')
+def register():
+
+    return render_template("register.html", title='Register')

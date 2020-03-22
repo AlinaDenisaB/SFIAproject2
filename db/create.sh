@@ -27,7 +27,7 @@ grant_user_read_access() {
 }
 
 run_sql_scripts() {
-    sudo docker exec -i mysql mysql producta \
+    sudo docker exec -i mysql mysql
         -uroot -p${MYSQL_ROOT_PASSWORD} < create.sql 
 }
 

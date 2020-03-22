@@ -1,6 +1,29 @@
 version: '3.7'
 services:
-  passwordgenerator:
+   
+  frontend-service:
+    image: ansible-jenkins:5000/frontend:${BUILD_NUMBER}
+    container_name: frontend
+    build: ./FrontEnd
+    ports:
+    - target: 5000
+      published: 5000
+      protocol: tcp
+    environment:
+    - USERNAME=${USERNAME}
+    - PASSWORD=${PASSWORD}
+    - MYSQL_URL=${MYSQL_URL}
+    - MYSQL_DB=${MYSQL_DB}
+    - MYSQL_DB_TEST=${MYSQL_DB_TEST}
+    - SECRET_KEY=${SECRET_KEY}
+    networks:
+    - my-network
+    depends_on:
+    - password-generator-service
+
+  password-generator-service:
+    image: ansible-jenkins:5000/password-generator-service:${BUILD_NUMBER}
+    container_name: password-generator
     build: ./PasswordGenerator
     ports:
     - target: 5004
@@ -10,8 +33,8 @@ services:
     - SECRET_KEY=secretkey
     networks:
     - my-network
-  
-  randnumsgen:
+
+  randnumsgen-service:
     build: ./RandNumsGen
     ports:
     - target: 5001
@@ -21,8 +44,8 @@ services:
     - SECRET_KEY=secretkey
     networks:
     - my-network
-  
-  randletgen:
+
+  randletgen-service:
     build: ./RandLetGen
     ports:
     - target: 5002
@@ -32,7 +55,8 @@ services:
     - SECRET_KEY=secretkey
     networks:
     - my-network
-  specialchargen:
+
+  specialchargen-service:
      build: ./SpecialCharGen
      ports:
      - target: 5003
@@ -42,19 +66,21 @@ services:
      - SECRET_KEY=secretkey
      networks:
      - my-network
-    
-  frontend:
-    build: ./FrontEnd
+
+  nginx:
+    image: nginx:latest
+    deploy:
+      replicas: 2
+    container_name: nginx
     ports:
-    - target: 5000
-      published: 5000
-      protocol: tcp
-    environment:
-    - SECRET_KEY=secretkey
-    networks:
-    - my-network
+    - target: 80
+      published: 80
+    volumes:
+    - type: bind
+      source: ./nginx/nginx.conf
+      target: /etc/nginx/nginx.conf
     depends_on:
-    - passwordgenerator
+      - frontend-service
 
 networks:
   my-network:
