@@ -1,86 +1,29 @@
 version: '3.7'
 services:
-   
-  frontend-service:
-    image: ansible-jenkins:5000/frontend:${BUILD_NUMBER}
-    container_name: frontend
-    build: ./FrontEnd
-    ports:
-    - target: 5000
-      published: 5000
-      protocol: tcp
-    environment:
-    - USERNAME=${USERNAME}
-    - PASSWORD=${PASSWORD}
-    - MYSQL_URL=${MYSQL_URL}
-    - MYSQL_DB=${MYSQL_DB}
-    - MYSQL_DB_TEST=${MYSQL_DB_TEST}
-    - SECRET_KEY=${SECRET_KEY}
-    networks:
-    - my-network
-    depends_on:
-    - password-generator-service
-
-  password-generator-service:
-    image: ansible-jenkins:5000/password-generator-service:${BUILD_NUMBER}
-    container_name: password-generator
+  backend-service:
     build: ./PasswordGenerator
-    ports:
-    - target: 5004
-      published: 5004
-      protocol: tcp
     environment:
     - SECRET_KEY=secretkey
-    networks:
-    - my-network
-
-  randnumsgen-service:
+  numbers-service:
     build: ./RandNumsGen
-    ports:
-    - target: 5001
-      published: 5001
-      protocol: tcp
     environment:
     - SECRET_KEY=secretkey
-    networks:
-    - my-network
-
-  randletgen-service:
+  letters-service:
     build: ./RandLetGen
-    ports:
-    - target: 5002
-      published: 5002
-      protocol: tcp
     environment:
     - SECRET_KEY=secretkey
-    networks:
-    - my-network
-
-  specialchargen-service:
-     build: ./SpecialCharGen
-     ports:
-     - target: 5003
-       published: 5003
-       protocol: tcp
-     environment:
-     - SECRET_KEY=secretkey
-     networks:
-     - my-network
-
+  specialchar-service:
+    build: ./SpecialCharGen
+    environment:
+    - SECRET_KEY=secretkey
+  frontend-service:
+    build: ./FrontEnd
+    environment:
+    - SECRET_KEY=secretkey
   nginx:
     image: nginx:latest
-    deploy:
-      replicas: 2
-    container_name: nginx
     ports:
     - target: 80
       published: 80
-    volumes:
-    - type: bind
-      source: ./nginx/nginx.conf
-      target: /etc/nginx/nginx.conf
-    depends_on:
-      - frontend-service
+      protocol: tcp
 
-networks:
-  my-network:
