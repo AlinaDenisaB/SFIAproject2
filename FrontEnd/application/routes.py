@@ -1,11 +1,12 @@
 from flask import render_template, redirect, url_for, request
 from application import app, db, bcrypt
-from application.forms import CategoryForm, ProductForm, UpdateProducts, DeleteProduct
+from application.forms import CategoryForm, ProductForm, UpdateProducts, DeleteProduct, Register
 import flask_bcrypt
 import os
 import secrets
 from werkzeug.utils import secure_filename
 #from PIL import Image
+import requests
 
 @app.route('/')
 @app.route('/home')
@@ -76,7 +77,18 @@ def admin():
 
     return render_template('admin.html', form=categoryForm, form1=productForm, form2=updateProduct, form3=deleteProduct)
 
-@app.route('/register')
+@app.route('/register', methods=['GET','POST'])
 def register():
+    generatePassword = requests.get('http://51.104.244.89:5004/passGen').text
+    register=Register()
+    if register.validate_on_submit():
+        NewUser=db.Users(
+                email=register.email.data,
+                password=register.password.data,
+                confirmPassword=register.confirmPassword.data
+        )
+        db.session.add(NewUser)
+        db.session.commit()
+        return redirect(url_for('cart'))
 
-    return render_template("register.html", title='Register')
+    return render_template("register.html", title='Register', form=register, generatePassword=generatePassword)
