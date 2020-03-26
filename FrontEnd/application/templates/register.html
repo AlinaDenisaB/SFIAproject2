@@ -2,7 +2,7 @@
 {% block body_content %}
 <p><h3><b> Welcome to the registration page! Please register in order to be able to add products to the cart. </b><h3></p>
 <div class='form'>
-        <form method='POST' action='' enctype="multipart/form-data">
+        <form method='GET' action=''>
             {{ form.hidden_tag() }}
             <div class='form-group'>
                 {{ form.email.label }}
@@ -16,10 +16,12 @@
                 {% endif %}
             </div>
             <br>
+	    <div class='form-group'>
+		{{ form.genPassword }}
+	    </div>
             <div class='form-group'>
                 {{ form.password.label }}
                 {{ form.password }}
-		<button class="btn" onclick="getPassword({{ passwordGenerator }})"> Generate password </button>
                 {% if form.password.errors %}
                     <div class='error'>
                         {% for error in form.password.errors %}
@@ -45,15 +47,15 @@
                 {{ form.submit }}
             </div>
         </form>
-</div>
-<script>
-function getPassword()
-{
-	var getPassword = form.getElementById("{{ passwordGenerator }}");
-	getPassword.click();
-}
-getPassword("{{ passwordGenerator }}")
-	
-</script>
 
+</div> 
+    <div class='form'>
+        <form method='GET' action=''>
+            {{ form1.hidden_tag() }}
+            <div>
+                {{ form1.genPassword }}
+            </div>
+        </form>
+    <h4>There is an unique and secure password that you can use: {{ genPassword }}</h4>
+    </div>
 {% endblock %}

@@ -60,6 +60,9 @@ class DeleteProduct(FlaskForm):
     )
     submit=SubmitField('Delete product!')
 
+class Generator(FlaskForm):
+    genPassword = SubmitField('Generate password')
+
 class Register(FlaskForm):
     email=StringField('Email', 
         validators=[
