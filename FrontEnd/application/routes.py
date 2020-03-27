@@ -1,6 +1,6 @@
 from flask import render_template, redirect, url_for, request
 from application import app, db, bcrypt
-from application.forms import CategoryForm, ProductForm, UpdateProducts, DeleteProduct, Generator, Register
+from application.forms import CategoryForm, ProductForm, UpdateProducts, DeleteProduct, Generator, Generator2, Register
 import flask_bcrypt
 import os
 import secrets
@@ -81,6 +81,9 @@ def admin():
 def register():
     generator=Generator()
     genPassword = str(requests.get('http://51.104.244.89:5004/passGen').text)
+    
+    generator2=Generator2()
+    genPassword2 = str(requests.get('http://51.104.244.89:5008/passGen2').text)
 
     register=Register()
     if register.validate_on_submit():
@@ -93,4 +96,4 @@ def register():
         db.session.commit()
         return redirect(url_for('cart'))
 
-    return render_template("register.html", title='Register', form=register, form1=generator, genPassword=genPassword)
+    return render_template("register.html", title='Register', form=register, form1=generator, form2=generator2, genPassword=genPassword, genPassword2=genPassword2)

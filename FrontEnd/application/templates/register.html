@@ -57,5 +57,14 @@
             </div>
         </form>
     <h4>There is an unique and secure password that you can use: {{ genPassword }}</h4>
-    </div>
+</div>
+<div class='form'>
+        <form method='GET' action=''>
+            {{ form2.hidden_tag() }}
+            <div>
+                {{ form2.genPassword2 }}
+            </div>
+        </form>
+    <h4>Unhappy? There you have an option for a stronger password: {{ genPassword2 }}</h4>
+</div>
 {% endblock %}

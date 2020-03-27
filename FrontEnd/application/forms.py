@@ -63,6 +63,9 @@ class DeleteProduct(FlaskForm):
 class Generator(FlaskForm):
     genPassword = SubmitField('Generate password')
 
+class Generator2(FlaskForm):
+    genPassword2 = SubmitField('Generate a stronger password')
+
 class Register(FlaskForm):
     email=StringField('Email', 
         validators=[
