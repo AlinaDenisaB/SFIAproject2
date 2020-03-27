@@ -12,3 +12,5 @@ flask-testing==0.7.1
 pytest-cov==2.8.1  
 pytest-html==1.22.1
 requests==2.22.0
+Werkzeug==0.16.1
+
