@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm, RecaptchaField
 from flask_wtf.file import FileField, FileAllowed
-from wtforms import Form, StringField, SubmitField, FloatField, IntegerField, validators
+from wtforms import Form, StringField, SubmitField, FloatField, IntegerField, validators, PasswordField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 
 class CategoryForm(FlaskForm):
@@ -73,16 +73,19 @@ class Register(FlaskForm):
             Length(min=2, max=100)
         ]
     )
-    password=StringField('Password',
+    password=PasswordField('Password',
         validators=[
-            DataRequired(),
-            Length(min=6, max=100)
+            DataRequired()
         ]   
     )
-    confirmPassword=StringField('Confirm password',
+    confirmPassword=PasswordField('Confirm password',
         validators=[
             DataRequired(),
-            Length(min=6, max=100)
+            EqualTo('password')
         ]
     )
     submit=SubmitField("Register")
+    def validate_email(self, email):
+        user = Users.query.filter_by(email=email.data).first()
+        if user:
+            raise ValidationError('Email is already in use!')

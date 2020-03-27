@@ -1,4 +1,4 @@
-from flask import render_template, redirect, url_for, request
+from flask import render_template, redirect, url_for, request, flash
 from application import app, db, bcrypt
 from application.forms import CategoryForm, ProductForm, UpdateProducts, DeleteProduct, Generator, Generator2, Register
 import flask_bcrypt
@@ -87,13 +87,16 @@ def register():
 
     register=Register()
     if register.validate_on_submit():
+        hashed_password = bcrypt.generate_password_hash(register.password.data).decode('utf-8'),
+        hashed_confirmPassword = bcrypt.generate_password_hash(register.confirmPassword.data).decode('utf-8')
         NewUser=db.Users(
                 email=register.email.data,
-                password = register.password.data,
-                confirmPassword=register.confirmPassword.data
+                password = hashed_password,
+                confirmPassword=hashed_confirmPassword
         )
         db.session.add(NewUser)
         db.session.commit()
+        flash('You have successfully register!')
         return redirect(url_for('cart'))
 
     return render_template("register.html", title='Register', form=register, form1=generator, form2=generator2, genPassword=genPassword, genPassword2=genPassword2)
