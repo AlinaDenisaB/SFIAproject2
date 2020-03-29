@@ -31,9 +31,15 @@ Micro-sevice oriented arhitecture application that generates "Objects" upon a se
 
 ### Architecture - Micro Services ### 
   #### Service #1 ####
+  The first service is responsible for the communicating with the with the other 4 services and for persisting data in an SQL database.
   #### Service #2 #### 
+  The second service is a number generator, which randomly gives 3 numbers for the first implementation and 5 numbers for the second implementation.
   #### Service #3 ####
-  #### Service #4 #### 
+  The third service is a letter generator that gives 10 random letters for the first implementation and 15 random letters for the second implementation.
+  #### Service #4 ####
+  The fourth service generate 2 special chars for the first implementation and 3 for the second implementation.
+  #### Service #5 ####
+  The fifth service create a password based upon the results of the service #2 + #3 + #4 and shuffle the letters, the numbers and the special chars.
 ### User Journey ### 
 ### Ansible Playbook ###
 
