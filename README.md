@@ -1,6 +1,6 @@
 # Practical SFIA project #
 
-Micro-sevice oriented arhitecture application that generates "Objects" upon a set of predefined rules.  
+Micro-sevice oriented arhitecture application that generates passwords upon a set of predefined rules.  
 
 #### Content ####  
 * [Introduction](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/README.md#introduction)  
@@ -39,7 +39,7 @@ Micro-sevice oriented arhitecture application that generates "Objects" upon a se
   #### Service #4 ####
   The fourth service generate 2 special chars for the first implementation and 3 for the second implementation.
   #### Service #5 ####
-  The fifth service create a password based upon the results of the service #2 + #3 + #4 and shuffle the letters, the numbers and the special chars.
+  The fifth service create passwords based upon the results of the service #2 + #3 + #4 and shuffle the letters, the numbers and the special chars.
 ### User Journey ### 
 ### Ansible Playbook ###
 
