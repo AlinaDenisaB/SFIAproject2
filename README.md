@@ -23,6 +23,7 @@ Micro-sevice oriented arhitecture application that generates passwords upon a se
 * [Future Improvements](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/README.md#future-improvements)
 
 ### Introduction ### 
+The project aims to create a password generator using microservices that generate numbers, letters and special characters.
 #### Overview ####
 #### User stories ####
 #### Risk Assessment ####
