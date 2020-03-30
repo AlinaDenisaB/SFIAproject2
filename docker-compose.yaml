@@ -1,29 +1,81 @@
 version: '3.7'
 services:
-  backend-service:
-    build: ./PasswordGenerator
-    environment:
-    - SECRET_KEY=secretkey
+  passwordgenerator-service:
+    container_name: passwordgenerator
+    build: PasswordGenerator/
+    ports:
+    - target: 5004
+      published: 5004
+      protocol: tcp
+  passwordgenerator2-service:
+    container_name: passwordgenerator2
+    build: PasswordGenerator2/
+    ports:
+    - target: 5008
+      published: 5008
+      protocol: tcp
   numbers-service:
-    build: ./RandNumsGen
-    environment:
-    - SECRET_KEY=secretkey
+    container_name: numbers
+    build: RandNumsGen/
+    ports:
+    - target: 5001
+      published: 5001
+      protocol: tcp
+  numbers2-service:
+    container_name: numbers2
+    build: RandNumsGen2/
+    ports:
+    - target: 5005
+      published: 5005
+      protocol: tcp
   letters-service:
-    build: ./RandLetGen
-    environment:
-    - SECRET_KEY=secretkey
+    container_name: letters
+    build: RandLetGen/
+    ports:
+    - target: 5002
+      published: 5002
+      protocol: tcp
+  letters2-service:
+    container_name: letters2
+    build: RandLetGen2/
+    ports:
+    - target: 5006
+      published: 5006
+      protocol: tcp
   specialchar-service:
-    build: ./SpecialCharGen
-    environment:
-    - SECRET_KEY=secretkey
+    container_name: specialchar
+    build: SpecialCharGen/
+    ports:
+    - target: 5003
+      published: 5003
+      protocol: tcp
+  specialchar2-service:
+    container_name: specialchar2
+    build: SpecialCharGen2/
+    ports:
+    - target: 5007
+      published: 5007
+      protocol: tcp
   frontend-service:
-    build: ./FrontEnd
+    container_name: frontend
+    build: FrontEnd/
+    ports:
+    - target: 5000
+      published: 5000
+      protocol: tcp
     environment:
-    - SECRET_KEY=secretkey
+    - SECRET_KEY=${SECRET_KEY}
+
   nginx:
     image: nginx:latest
+    container_name: nginx
     ports:
     - target: 80
       published: 80
       protocol: tcp
-
+    volumes:
+    - type: bind
+      source: ./nginx/nginx.conf
+      target: /etc/nginx/nginx.conf
+    depends_on:
+    - frontend-service
