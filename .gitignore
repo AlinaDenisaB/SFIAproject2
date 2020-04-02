@@ -1,6 +1,3 @@
-/CentralServer/.dockerignore
-/PracticalProject.docx
-/ignorefile
 /venv/*
 /__pycache__/*
 /playbook.yaml

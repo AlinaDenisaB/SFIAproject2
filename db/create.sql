@@ -1,21 +1,11 @@
-CREATE DATABASE db;
+CREATE USER IF NOT EXISTS 'admin' IDENTIFIED BY 'password';
+GRANT ALL ON db.* TO 'admin';
+CREATE DATABASE IF NOT EXISTS db;
 
-CREATE table db.Categories(
+CREATE TABLE IF NOT EXISTS db.Passwords(
 	id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	categoryName varchar(50) NOT NULL
-);
-
-CREATE table db.Products(
-	id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	productName varchar(50) NOT NULL,
-	productInfo varchar(50) NOT NULL,
-	productIMG varchar(50) NOT NULL,
-	productPrice float NOT NULL
-);
-
-CREATE table db.Users(
-	id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	email varchar(50) NOT NULL,
 	password varchar(50) NOT NULL,
-	confirmPassword varchar(50) NOT NULL
+	UNIQUE (password)
 );
+
+USE db;
