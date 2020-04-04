@@ -1,0 +1,9 @@
+CREATE DATABASE IF NOT EXISTS db;
+
+CREATE TABLE IF NOT EXISTS db.Passwords(
+	id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	password varchar(50) NOT NULL,
+	UNIQUE (password)
+);
+
+USE db;

@@ -1,0 +1,72 @@
+version: '3.7'
+services:
+  backend-service:
+    image: alinadenisa/passwordgenerator:${version}
+    container_name: passwordgenerator
+    ports:
+    - "5004:5004"
+    - "5008:5008"
+    expose:
+    - "5004"
+    - "5008"
+    depends_on:
+    - randnumsgen-service
+    - randletgen-service
+    - specialchargen-service
+
+  randnumsgen-service:
+    image: alinadenisa/randnumsgen:${version}
+    container_name: randnumsgen
+    ports:
+    - "5001:5001"
+    - "5005:5005"
+    expose:
+    - "5001"
+    - "5005"
+    
+  randletgen-service:
+    image: alinadenisa/randletgen:${version}
+    container_name: randletgen
+    ports:
+    - "5002:5002"
+    - "5006:5006"
+    expose:
+    - "5002"
+    - "5006"
+ 
+  specialchargen-service:
+    image: alinadenisa/specialchargen:${version}
+    container_name: specialchargen
+    ports:
+    - "5003:5003"
+    - "5007:5007"
+    expose:
+    - "5003"
+    - "5007"
+   
+  frontend-service:
+    image: alinadenisa/frontend:V1
+    container_name: frontend
+    ports:
+    - target: 5000
+      published: 5000
+      protocol: tcp
+    environment:
+    - DATABASE_URI=mysql+pymysql://root:password@http://db:3306/db
+    - SECRET_KEY=mysecretkey
+    depends_on:
+    - backend-service
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+    - target: 80
+      published: 80
+      protocol: tcp
+    volumes:
+    - type: bind
+      source: ./nginx/nginx.conf
+      target: /etc/nginx/nginx.conf
+    depends_on:
+    - frontend-service
