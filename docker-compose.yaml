@@ -1,80 +1,62 @@
 version: '3.7'
 services:
-  passwordgenerator-service:
+  backend-service:
+    image: alinadenisa/passwordgenerator:${version}
     container_name: passwordgenerator
-    build: PasswordGenerator/
     ports:
-    - target: 5004
-      published: 5004
-      protocol: tcp
-  passwordgenerator2-service:
-    container_name: passwordgenerator2
-    build: PasswordGenerator2/
+    - "5004:5004"
+    - "5008:5008"
+    expose:
+    - "5004"
+    - "5008"
+    depends_on:
+    - randnumsgen-service
+    - randletgen-service
+    - specialchargen-service
+
+  randnumsgen-service:
+    image: alinadenisa/randnumsgen:${version}
+    container_name: randnumsgen
     ports:
-    - target: 5008
-      published: 5008
-      protocol: tcp
-  numbers-service:
-    container_name: numbers
-    build: RandNumsGen/
+    - "5001:5001"
+    - "5005:5005"
+    expose:
+    - "5001"
+    - "5005"
+    
+  randletgen-service:
+    image: alinadenisa/randletgen:${version}
+    container_name: randletgen
     ports:
-    - target: 5001
-      published: 5001
-      protocol: tcp
-  numbers2-service:
-    container_name: numbers2
-    build: RandNumsGen2/
+    - "5002:5002"
+    - "5006:5006"
+    expose:
+    - "5002"
+    - "5006"
+ 
+  specialchargen-service:
+    image: alinadenisa/specialchargen:${version}
+    container_name: specialchargen
     ports:
-    - target: 5005
-      published: 5005
-      protocol: tcp
-  letters-service:
-    container_name: letters
-    build: RandLetGen/
-    ports:
-    - target: 5002
-      published: 5002
-      protocol: tcp
-  letters2-service:
-    container_name: letters2
-    build: RandLetGen2/
-    ports:
-    - target: 5006
-      published: 5006
-      protocol: tcp
-  specialchar-service:
-    container_name: specialchar
-    build: SpecialCharGen/
-    ports:
-    - target: 5003
-      published: 5003
-      protocol: tcp
-  specialchar2-service:
-    container_name: specialchar2
-    build: SpecialCharGen2/
-    ports:
-    - target: 5007
-      published: 5007
-      protocol: tcp
+    - "5003:5003"
+    - "5007:5007"
+    expose:
+    - "5003"
+    - "5007"
+   
   frontend-service:
+    image: alinadenisa/frontend:V1
     container_name: frontend
-    build: FrontEnd/
     ports:
     - target: 5000
       published: 5000
       protocol: tcp
     environment:
-    - DATABASE_URI=mysql+pymysql://root:${PWD_ROOT}@db:3306/db
-    - SECRET_KEY=${SECRET_KEY}
-  db:
-    build: db/
-    container_name: db
-    ports:
-    - target: 3306
-      published: 3306
-    environment:
-    - MYSQL_ROOT_PASSWORD=${PWD_ROOT}
-    - MYSQL_ALLOW_EMPTY_PASSWORD=no
+    - DATABASE_URI=mysql+pymysql://root:password@http://db:3306/db
+    - SECRET_KEY=mysecretkey
+    depends_on:
+    - backend-service
+
   nginx:
     image: nginx:latest
     container_name: nginx

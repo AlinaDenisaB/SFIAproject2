@@ -5,6 +5,6 @@ import random
 
 specialChars='!?#@£%&'
 
-@app.route('/specialChar2')
-def specialChar2():
+@app.route('/specialChar')
+def specialChar():
     return ''.join(random.choice(specialChars) for i in range(3))

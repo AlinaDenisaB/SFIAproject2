@@ -9,10 +9,8 @@ app= Flask(__name__)
 bcrypt = Bcrypt(app)
 
 
-app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://alina:password@http://db:3306/db"
-#SECRET_KEY = os.urandom(32)
-app.config['SECRET_KEY'] = 'SECRET_KEY'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:password@http://db:3306/db"
+app.config['SECRET_KEY'] = 'mysecretkey'
 
 db = SQLAlchemy(app)
 
