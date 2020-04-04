@@ -1,14 +1,12 @@
 version: '3.7'
 services:
   backend-service:
-    image: alinadenisa/passwordgenerator:${version}
+    image: alinadenisa/passwordgenerator:V1
     container_name: passwordgenerator
     ports:
     - "5004:5004"
-    - "5008:5008"
     expose:
     - "5004"
-    - "5008"
     depends_on:
     - randnumsgen-service
     - randletgen-service
