@@ -44,7 +44,8 @@ The project aims to create a password generator using microservices that generat
 ### User Journey ### 
 ### Ansible Playbook ###
 
-CI Pipeline
+# CI Pipeline #
+![CI_Pipeline](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/Documentation/CI_Pipeline.png)
 
 Used technologies:
 * Git - Version Control System  
