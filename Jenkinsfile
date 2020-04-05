@@ -4,6 +4,7 @@ pipeline {
       stage('Deploy'){
 	steps{
 	sh '''
+		rm -rf SFIAproject2
 		git clone https://github.com/AlinaDenisaB/SFIAproject2
 		cd ./SFIAproject2
 		export version=V1
