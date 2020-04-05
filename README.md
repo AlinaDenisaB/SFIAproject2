@@ -57,9 +57,9 @@ Used technologies:
   * This also provide a record of any issues or risks I face creating my project  
     [Asana Board](https://app.asana.com/0/1167646120844282/board)
 ### Tests Log ###
-![TestsMicroservices](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/Documentation/Micro-services.PNG)  
-![TestPassGen](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/Documentation/passgenTest.PNG)  
-![TestFrontEnd](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/Documentation/TestFrontEnd.PNG)  
+![TestsMicroservices](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/Documentation/microservicesTests.PNG)  
+![TestPassGen](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/Documentation/backendTest.PNG)  
+![TestFrontEnd](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/Documentation/frontendTest.PNG)  
 ### Demonstration ###
 link
 ### Future Improvements ### 
