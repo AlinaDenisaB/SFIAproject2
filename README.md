@@ -30,7 +30,8 @@ The project aims to create a password generator using microservices that generat
 #### ERD ####
 #### CI Pipeline ####
 
-### Architecture - Micro Services ### 
+# Architecture - Micro Services #
+![Architecture](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/Documentation/ServicesArhitecture.png)
   #### Service #1 ####
   The first service is responsible for the communicating with the with the other 4 services and for persisting data in an SQL database.
   #### Service #2 #### 
@@ -57,6 +58,9 @@ Used technologies:
   * This also provide a record of any issues or risks I face creating my project  
     [Asana Board](https://app.asana.com/0/1167646120844282/board)
 ### Tests Log ###
+![TestsMicroservices](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/Documentation/Micro-services.PNG)  
+![TestPassGen](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/Documentation/passgenTest.PNG)  
+![TestFrontEnd](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/Documentation/TestFrontEnd.PNG)  
 ### Demonstration ###
 link
 ### Future Improvements ### 
