@@ -55,6 +55,13 @@ services:
     depends_on:
     - backend-service
 
+  db:
+    image: alinadenisa/db:latest
+    ports:
+    - 3306
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+
   nginx:
     image: nginx:latest
     container_name: nginx
