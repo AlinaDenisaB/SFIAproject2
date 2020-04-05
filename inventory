@@ -1,0 +1,15 @@
+[jenkins]
+51.141.99.216
+
+[swarm]
+51.143.163.109
+
+[jenkins:vars]
+ansible_user=alina
+ansible_ssh_private_key_file=~/.ssh/id_rsa
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+
+[swarm:vars]
+ansible_user=alina
+ansible_ssh_private_key_file=~/.ssh/id_rsa
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'

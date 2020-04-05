@@ -1,0 +1,65 @@
+---
+- hosts: all
+  become: true
+  tasks:
+  - name: Create Jenkins users
+    user:
+      name: jenkins
+      shell: /bin/bash
+
+- hosts: jenkins
+  become: true
+  tasks:
+  - name: "ssh folder"
+    file:
+      path: /home/jenkins/.ssh
+      state: directory
+      mode: "0700"
+      owner: jenkins
+      group: jenkins
+  - name: "Copy private key to jenkins"
+    copy:
+      src: /home/alina/.ssh/id_rsa
+      dest: /home/jenkins/.ssh/id_rsa
+      owner: jenkins
+      group: jenkins
+      mode: u=rw,g=,o=
+  - name: install java
+    apt:
+      name: openjdk-8-jdk
+      state: latest
+  - name: jenkins gpg key
+    apt_key:
+      url: "https://pkg.jenkins.io/debian/jenkins.io.key"
+      state: present
+  - name: jenkins apt repo
+    apt_repository:
+      repo: "deb http://pkg.jenkins.io/debian-stable binary/"
+      state: present
+  - name: jenkins install
+    apt:
+      name: jenkins
+      state: latest
+      update_cache: true
+  - name: jenkins service
+    service:
+      name: jenkins
+      state: started
+
+- hosts: swarm
+  become: true
+  tasks:
+  - name: "ssh folder"
+    file:
+      path: /home/jenkins/.ssh
+      state: directory
+      mode: "0700"
+      owner: jenkins
+      group: jenkins
+  - name: Copy private key to ansible-swarm
+    copy:
+      src: /home/alina/.ssh/id_rsa.pub
+      dest: /home/jenkins/.ssh/authorized_keys
+      owner: jenkins
+      mode: u=rw,g=,o=
+
