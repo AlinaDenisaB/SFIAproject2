@@ -3,7 +3,7 @@ import app
 from application import routes
     
 def test_randletgen():
-    assert len(routes.letGen())==10
+    assert len(routes.letGen())==15
 
 def test_type():
     assert type(routes.letGen())==str
