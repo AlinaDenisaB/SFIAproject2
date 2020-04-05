@@ -8,7 +8,6 @@ Micro-sevice oriented arhitecture application that generates passwords upon a se
  * [User Stories](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/README.md#user-stories)
  * [Risk Assessment](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/README.md#risk-assessment)
  * [ERD](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/README.md#erd)
- * [CI Pipeline](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/README.md#ci-pipeline)
  
 * [Architecture - Micro Services](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/README.md#arhitecture-micro-services)  
   * [Service #1](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/README.md#service-#1)
@@ -16,6 +15,7 @@ Micro-sevice oriented arhitecture application that generates passwords upon a se
   * [Service #3](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/README.md#service-#3)
   * [Service #4](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/README.md#service-#4)  
   
+* [CI Pipeline](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/README.md#ci-pipeline)
 * [User Journey](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/README.md#user-journey)  
 * [Ansible Playbook](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/README.md#ansible-playbook) 
 * [Test Log](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/README.md#tests-log)
@@ -28,7 +28,6 @@ The project aims to create a password generator using microservices that generat
 #### User stories ####
 #### Risk Assessment ####
 #### ERD ####
-#### CI Pipeline ####
 
 # Architecture - Micro Services #
 ![Architecture](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/Documentation/ServicesArhitecture.png)
