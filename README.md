@@ -16,9 +16,7 @@ Micro-sevice oriented arhitecture application that generates passwords upon a se
   * [Service #4](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/README.md#service-#4)  
   * [Service #5](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/README.md#service-#5)
   
-* [CI Pipeline](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/README.md#ci-pipeline)
-* [User Journey](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/README.md#user-journey)  
-* [Ansible Playbook](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/README.md#ansible-playbook) 
+* [CI Pipeline](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/README.md#ci-pipeline) 
 * [Test Log](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/README.md#tests-log)
 * [Demonstration](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/README.md#demonstration)
 * [Future Improvements](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/README.md#future-improvements)
@@ -49,9 +47,6 @@ The project aims to create a password generator using microservices that generat
   The fourth service generate 2 special chars for the first implementation and 3 for the second implementation.
   #### Service #5 ####
   The fifth service create passwords based upon the results of the service #2 + #3 + #4 and shuffle the letters, the numbers and the special chars. Hence, the result will be a password that is redirected to the frontend service and it changes every time the user press the button.
-  
-### User Journey ### 
-### Ansible Playbook ###
 
 # CI Pipeline #
 ![CI_Pipeline](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/Documentation/CI_Pipeline.png)
@@ -75,4 +70,4 @@ Used technologies:
 [link_demo](51.104.244.89:5000)
 
 ### Future Improvements ### 
- 
+* As future improvements, I would add a few filters to the application so that the user has the posibility to build the password according to the preferences. So, the filters would be like: selecting the size of the password, with a plenty of options available or to generate a phrase that will help the user to remember the password.
