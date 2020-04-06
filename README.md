@@ -40,7 +40,7 @@ The project aims to create a password generator using microservices that generat
 # Architecture - Micro Services #
 ![Architecture](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/Documentation/ServicesArhitecture.png)
   #### Service #1 ####
-  The first service is responsible for the communicating with the with the other 4 services and for persisting data in an SQL database.
+  The first service is responsible for the communicating with the other 4 services and for persisting data in an SQL database.
   #### Service #2 #### 
   The second service is a number generator, which randomly gives 3 numbers for the first implementation and 5 numbers for the second implementation.
   #### Service #3 ####
@@ -48,7 +48,8 @@ The project aims to create a password generator using microservices that generat
   #### Service #4 ####
   The fourth service generate 2 special chars for the first implementation and 3 for the second implementation.
   #### Service #5 ####
-  The fifth service create passwords based upon the results of the service #2 + #3 + #4 and shuffle the letters, the numbers and the special chars.
+  The fifth service create passwords based upon the results of the service #2 + #3 + #4 and shuffle the letters, the numbers and the special chars. Hence, the result will be a password that is redirected to the frontend service and it changes every time the user press the button.
+  
 ### User Journey ### 
 ### Ansible Playbook ###
 
@@ -64,10 +65,14 @@ Used technologies:
 * Asana (Kanban board) - full expansion on tasks needed to complete the project  
   * This also provide a record of any issues or risks I face creating my project  
     [Asana Board](https://app.asana.com/0/1167646120844282/board)
+    
 ### Tests Log ###
 ![TestsMicroservices](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/Documentation/microservicesTests.PNG)  
 ![TestPassGen](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/Documentation/backendTest.PNG)  
-![TestFrontEnd](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/Documentation/frontendTest.PNG)  
+![TestFrontEnd](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/Documentation/frontendTest.PNG) 
+
 ### Demonstration ###
 ![link_demo](51.104.244.89:5000)
+
 ### Future Improvements ### 
+ 
