@@ -4,6 +4,7 @@ pipeline {
       stage('Deploy'){
 	steps{
 	sh '''
+		ssh alina@51.104.244.89 << EOF
 		rm -rf SFIAproject2
 		git clone https://github.com/AlinaDenisaB/SFIAproject2
 		cd ./SFIAproject2
