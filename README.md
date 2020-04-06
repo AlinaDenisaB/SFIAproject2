@@ -28,8 +28,8 @@ Micro-sevice oriented arhitecture application that generates passwords upon a se
 The project aims to create a password generator using microservices that generate numbers, letters and special characters.
 
 #### User stories ####
-* As user, I want to be able to generate a password, so that I can have a secure password that includes letters, numbers and special characters.
-* As administrator, I want secure passwords, so that will be easier to protect the data of the users.
+* As an user, I want to be able to generate a password, so that I can have a secure password that includes letters, numbers and special characters.
+* As an administrator, I want secure passwords, so that will be easier to protect the data of the users.
 
 #### Risk Assessment ####
 ![RA](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/Documentation/RiskAssessment.PNG)
