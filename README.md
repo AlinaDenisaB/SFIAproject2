@@ -14,6 +14,7 @@ Micro-sevice oriented arhitecture application that generates passwords upon a se
   * [Service #2](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/README.md#service-#2)  
   * [Service #3](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/README.md#service-#3)
   * [Service #4](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/README.md#service-#4)  
+  * [Service #5](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/README.md#service-#5)
   
 * [CI Pipeline](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/README.md#ci-pipeline)
 * [User Journey](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/README.md#user-journey)  
@@ -31,6 +32,7 @@ The project aims to create a password generator using microservices that generat
 * As administrator, I want secure passwords, so that will be easier to protect the data of the users.
 
 #### Risk Assessment ####
+![RA](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/Documentation/RiskAssessment.PNG)
 
 #### ERD ####
 ![ERD](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/Documentation/ERD.png)
