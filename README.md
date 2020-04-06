@@ -72,7 +72,7 @@ Used technologies:
 ![TestFrontEnd](https://github.com/AlinaDenisaB/SFIAproject2/blob/master/Documentation/frontendTest.PNG) 
 
 ### Demonstration ###
-![link_demo](51.104.244.89:5000)
+[link_demo](51.104.244.89:5000)
 
 ### Future Improvements ### 
  
