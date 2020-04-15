@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: randletgen
+spec:
+  selector:
+    app: randletgen
+  ports: 
+  - protocol: TCP
+    port: 5006
+    targetPort: 5006
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: randletgen
+  labels: 
+    app: randletgen
+spec:
+  selector:
+    matchLabels:
+      app: randletgen
+  template:
+    metadata:
+      labels:
+        app: randletgen
+    spec:
+      containers:
+      - name: randletgen
+        image: alinadenisa/randletgen:V2
+        ports:
+        - containerPort: 5006
