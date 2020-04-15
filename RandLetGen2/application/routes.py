@@ -5,6 +5,6 @@ import random
 
 letters='aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ'
 
-@app.route('/letGen')
+@app.route('/')
 def letGen():
     return ''.join(random.choice(letters) for i in range(15))

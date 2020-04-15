@@ -5,6 +5,6 @@ import random
 
 numbers = '0123456789'
 
-@app.route('/numGen')
+@app.route('/')
 def numGen():
     return ''.join(random.choice(numbers) for i in range(5))
