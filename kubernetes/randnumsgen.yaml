@@ -7,8 +7,8 @@ spec:
     app: randnumsgen
   ports: 
   - protocol: TCP
-    port: 5005
-    targetPort: 5005
+    port: 5000
+    targetPort: 5000
   type: ClusterIP
 ---
 apiVersion: apps/v1
@@ -30,4 +30,4 @@ spec:
       - name: randnumsgen
         image: alinadenisa/randnumsgen:V2
         ports:
-        - containerPort: 5005
+        - containerPort: 5000

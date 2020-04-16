@@ -7,8 +7,8 @@ spec:
     app: specialchargen
   ports: 
   - protocol: TCP
-    port: 5007
-    targetPort: 5007
+    port: 5000
+    targetPort: 5000
   type: ClusterIP
 ---
 apiVersion: apps/v1
@@ -30,4 +30,4 @@ spec:
       - name: specialchargen
         image: alinadenisa/specialchargen:V2
         ports:
-        - containerPort: 5007
+        - containerPort: 5000

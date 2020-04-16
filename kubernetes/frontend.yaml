@@ -28,6 +28,6 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: alinadenisa/frontend:V2
+        image: alinadenisa/frontend:latest
         ports:
         - containerPort: 5000

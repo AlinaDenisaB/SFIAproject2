@@ -7,8 +7,8 @@ spec:
     app: randletgen
   ports: 
   - protocol: TCP
-    port: 5006
-    targetPort: 5006
+    port: 5000
+    targetPort: 5000
   type: ClusterIP
 ---
 apiVersion: apps/v1
@@ -30,4 +30,4 @@ spec:
       - name: randletgen
         image: alinadenisa/randletgen:V2
         ports:
-        - containerPort: 5006
+        - containerPort: 5000
